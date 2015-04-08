@@ -1,0 +1,44 @@
+{
+  "name": "sail-test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "js/app.js",
+  "dependencies": {
+    "reactfire": "*",
+    "firebase": "*",
+    "react": "*",
+    "react-bootstrap":"*",
+    "react-router":"*"
+  },
+  "devDependencies": {
+    "gulp-webserver":"*",
+    "browserify": "*",
+    "envify": "*",
+    "reactify": "*",
+    "gulp": "*",
+    "del": "*",
+    "gulp-less": "*",
+    "gulp-minify-css": "*",
+    "gulp-rename": "*",
+    "gulp-uglify": "*",
+    "gulp-closure-compiler": "*",
+    "vinyl-source-stream": "*",
+    "vinyl-buffer": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-replace":"*",
+    "gulp-git":"*"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "scripts": {
+    "build": "gulp",
+    "test": "mocha --harmony",
+    "start": "watchify --debug -o ./js/bundle.js -v -d ./js/app.jsx & gulp development-webserver"
+  },
+  "author": "John Wehr",
+  "license": "ISC"
+}
