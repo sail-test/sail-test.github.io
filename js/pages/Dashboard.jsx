@@ -16,7 +16,6 @@ module.exports = React.createClass({
         });
       }
     });
-    console.log(this.state.auth);
     handler.open({
       name: 'Sail Test',
       description: 'Pro Subscription ($29 per month)',
