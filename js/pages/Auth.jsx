@@ -115,9 +115,18 @@ var Auth = React.createClass({
     return <div>
       <Navbar />
       <div className="container-fluid">
-        {this.state.emailError ? <Alert bsStyle="danger" className='text-center'>{this.state.emailError}</Alert> : null}
+        {this.state.mode === "login" ? <div className="row">
+          <div className="col-xs-12">
+            <h1>Login</h1>
+          </div>
+        </div> : <div className="row">
+          <div className="col-xs-12">
+            <h1>Signup</h1>
+          </div>
+        </div>}
         <div className="row">
           <div className="col-xs-12">
+            {this.state.emailError ? <Alert bsStyle="danger" className='text-center'>{this.state.emailError}</Alert> : null}
             <form action="#" onSubmit={this.onSubmit}>
               <Input
                 type='text'
