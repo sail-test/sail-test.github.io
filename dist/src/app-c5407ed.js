@@ -391,9 +391,18 @@ var Auth = React.createClass({displayName: "Auth",
     return React.createElement("div", null, 
       React.createElement(Navbar, null), 
       React.createElement("div", {className: "container-fluid"}, 
-        this.state.emailError ? React.createElement(Alert, {bsStyle: "danger", className: "text-center"}, this.state.emailError) : null, 
+        this.state.mode === "login" ? React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-xs-12"}, 
+            React.createElement("h1", null, "Login")
+          )
+        ) : React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-xs-12"}, 
+            React.createElement("h1", null, "Signup")
+          )
+        ), 
         React.createElement("div", {className: "row"}, 
           React.createElement("div", {className: "col-xs-12"}, 
+            this.state.emailError ? React.createElement(Alert, {bsStyle: "danger", className: "text-center"}, this.state.emailError) : null, 
             React.createElement("form", {action: "#", onSubmit: this.onSubmit}, 
               React.createElement(Input, {
                 type: "text", 
