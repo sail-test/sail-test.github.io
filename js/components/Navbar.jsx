@@ -53,6 +53,7 @@ module.exports = React.createClass({
         <Nav>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/forecasts">Forecasts</Link></li>
+          {this.state.auth ? <li><Link to="/dashboard">Dashboard</Link></li> : null}
         </Nav>
         {this.state.auth ? <Nav right>
           <NavItem onClick={this.logout}>Logout</NavItem>
