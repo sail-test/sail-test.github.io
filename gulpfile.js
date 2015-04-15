@@ -59,10 +59,9 @@ gulp.task('js', ['git-remove'], function(cb) {
       .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(sourcemaps.write('./map', {includeContent: false, sourceRoot: '../src'}))
-      .pipe(gulp.dest('dist'));
-  }).then(function(){
-    cb();
-  });
+      .pipe(gulp.dest('dist'))
+      .on('end', cb);
+  })
 });
 
 gulp.task('less', ['git-remove'], function(cb) {
@@ -71,10 +70,9 @@ gulp.task('less', ['git-remove'], function(cb) {
       .pipe(less())
       .pipe(minify_css())
       .pipe(rename("app-" + revision + ".css"))
-      .pipe(gulp.dest('dist'));
-  }).then(function(){
-    cb();
-  });
+      .pipe(gulp.dest('dist'))
+      .on('end', cb);
+  })
 });
 
 gulp.task('templates', function(cb){  
@@ -82,10 +80,9 @@ gulp.task('templates', function(cb){
     return gulp.src(['./index.html.tmpl'])
       .pipe(rename("index.html"))
       .pipe(replace('<GIT-REVISISION>', revision))
-      .pipe(gulp.dest('./'));
-  }).then(function(){
-    cb();
-  });
+      .pipe(gulp.dest('./'))
+      .on('end', cb);
+  })
 });
 
 gulp.task('git-add', ['js', 'less', 'templates'], function(){
