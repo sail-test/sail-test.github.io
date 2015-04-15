@@ -157,15 +157,15 @@ var Auth = React.createClass({
           </div>
         </div>
         {this.state.mode === "login" ? <div className="row">
-          <div className="col-xs-12">
-            <Link to="/signup">Already a member?</Link>
-          </div>
-        </div> : <div className="row">
           <div className="col-xs-6">
             <Link to="/forgot">Forgot your password?</Link>
           </div>
           <div className="col-xs-6">
             <Link to="/login">Don't have an account?</Link>
+          </div>
+        </div> : <div className="row">
+          <div className="col-xs-12">
+            <Link to="/signup">Already a member?</Link>
           </div>
         </div>}
       </div>

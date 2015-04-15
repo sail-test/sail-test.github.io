@@ -58,6 +58,7 @@ module.exports = React.createClass({
         {this.state.auth ? <Nav right>
           <NavItem onClick={this.logout}>Logout</NavItem>
         </Nav> : <Nav right>
+          <li><Link to="/signup">Sign Up</Link></li>
           <li><Link to="/login">Log In</Link></li>
         </Nav>}
       </Navbar>
