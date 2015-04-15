@@ -491,7 +491,6 @@ module.exports = React.createClass({displayName: "exports",
         });
       }
     });
-    console.log(this.state.auth);
     handler.open({
       name: 'Sail Test',
       description: 'Pro Subscription ($29 per month)',
