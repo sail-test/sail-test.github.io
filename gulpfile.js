@@ -88,8 +88,8 @@ gulp.task('templates', function(cb){
   });
 });
 
-gulp.task('git-add', ['js', 'less'], function(){
-  return gulp.src('./dist/*').pipe(git.add({args: '-f'}));
+gulp.task('git-add', ['js', 'less', 'templates'], function(){
+  return gulp.src(['./dist/*', './dist/*/*']).pipe(git.add({args: '-f'}));
 });
 
 gulp.task('git-remove', function(done) {
