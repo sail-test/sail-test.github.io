@@ -1,0 +1,48 @@
+@import "bootstrap/bootstrap.less";
+@import "mixins.less";
+@import "leaflet.less";
+@import "map.less";
+@import "navbar.less";
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+@-ms-viewport{
+  width: device-width;
+}
+
+#react {
+  height:100%;
+  margin: auto;
+  position:relative;
+  box-sizing: border-box;
+  > div {
+    height:100%;
+    > div.container-fluid {
+      min-height:100%;
+      padding-top:@navbar-height;
+      @media (max-width: @screen-xs-max) {
+        padding-top:0;
+        min-height:initial;
+      }
+    }
+  }
+}
+
+
+@media print {
+  @page { 
+    margin: 0; 
+  }
+  body {
+    padding:1cm;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

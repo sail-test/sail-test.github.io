@@ -1,0 +1,31 @@
+.tide-page, .map-page {
+  .breadcrumb {
+    margin-top:@line-height-computed;
+  }
+.leaflet-tile-container img {
+-webkit-backface-visibility: hidden;
+}
+  .leaflet-container {
+    position:absolute !important;
+    top: @navbar-height + @line-height-computed * 3 + @breadcrumb-padding-vertical * 2;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    .form-group {
+      position:absolute;
+      top:10px;
+      right:10px;
+      width:20%;
+      min-width:150px;
+      z-index:1038;
+    }
+    @media (max-width: @screen-xs-max) {
+      top: @navbar-height + @line-height-computed * 3 + @breadcrumb-padding-vertical * 2;
+    }
+    @media print {
+      .leaflet-control-container {
+        display:none;
+      }
+    }
+  }  
+}

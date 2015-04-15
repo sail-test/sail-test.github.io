@@ -8,7 +8,9 @@
     "firebase": "*",
     "react": "*",
     "react-bootstrap":"*",
-    "react-router":"*"
+    "react-router":"*",
+    "react-leaflet":"*",
+    "moment":"*"
   },
   "devDependencies": {
     "gulp-webserver":"*",
