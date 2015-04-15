@@ -164,6 +164,7 @@ module.exports = React.createClass({displayName: "exports",
         this.state.auth ? React.createElement(Nav, {right: true}, 
           React.createElement(NavItem, {onClick: this.logout}, "Logout")
         ) : React.createElement(Nav, {right: true}, 
+          React.createElement("li", null, React.createElement(Link, {to: "/signup"}, "Sign Up")), 
           React.createElement("li", null, React.createElement(Link, {to: "/login"}, "Log In"))
         )
       )
@@ -433,15 +434,15 @@ var Auth = React.createClass({displayName: "Auth",
           )
         ), 
         this.state.mode === "login" ? React.createElement("div", {className: "row"}, 
-          React.createElement("div", {className: "col-xs-12"}, 
-            React.createElement(Link, {to: "/signup"}, "Already a member?")
-          )
-        ) : React.createElement("div", {className: "row"}, 
           React.createElement("div", {className: "col-xs-6"}, 
             React.createElement(Link, {to: "/forgot"}, "Forgot your password?")
           ), 
           React.createElement("div", {className: "col-xs-6"}, 
             React.createElement(Link, {to: "/login"}, "Don't have an account?")
+          )
+        ) : React.createElement("div", {className: "row"}, 
+          React.createElement("div", {className: "col-xs-12"}, 
+            React.createElement(Link, {to: "/signup"}, "Already a member?")
           )
         )
       )
