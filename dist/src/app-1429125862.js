@@ -477,8 +477,10 @@ var React = require('react');
 var Button = require('react-bootstrap/lib/Button');
 var firebase = require("../utils/firebase");
 var Navbar = require('../components/Navbar.jsx');
+var AuthMixin = require("../mixins/Auth");
 
 module.exports = React.createClass({displayName: "exports",
+  mixins: [AuthMixin],
   checkout: function(){
     var handler = StripeCheckout.configure({
       key: 'pk_test_yozBVmnQrILPFDfogSHA4RBl',
@@ -489,13 +491,15 @@ module.exports = React.createClass({displayName: "exports",
         });
       }
     });
+    console.log(this.state.auth);
     handler.open({
       name: 'Sail Test',
       description: 'Pro Subscription ($29 per month)',
       panelLabel: "Subscribe",
       label: "Subscribe",
       amount: 2000,
-      allowRememberMe: false
+      allowRememberMe: false,
+      email: this.state.auth.password.email
     });
   },
   render: function() {
@@ -516,7 +520,7 @@ module.exports = React.createClass({displayName: "exports",
 
 
 
-},{"../components/Navbar.jsx":4,"../utils/firebase":13,"react":307,"react-bootstrap/lib/Button":20}],10:[function(require,module,exports){
+},{"../components/Navbar.jsx":4,"../mixins/Auth":6,"../utils/firebase":13,"react":307,"react-bootstrap/lib/Button":20}],10:[function(require,module,exports){
 var React = require('react');
 var ListGroup = require('react-bootstrap/lib/ListGroup');
 var ListGroupItem = require('react-bootstrap/lib/ListGroupItem');

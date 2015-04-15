@@ -2,8 +2,10 @@ var React = require('react');
 var Button = require('react-bootstrap/lib/Button');
 var firebase = require("../utils/firebase");
 var Navbar = require('../components/Navbar.jsx');
+var AuthMixin = require("../mixins/Auth");
 
 module.exports = React.createClass({
+  mixins: [AuthMixin],
   checkout: function(){
     var handler = StripeCheckout.configure({
       key: 'pk_test_yozBVmnQrILPFDfogSHA4RBl',
@@ -14,13 +16,15 @@ module.exports = React.createClass({
         });
       }
     });
+    console.log(this.state.auth);
     handler.open({
       name: 'Sail Test',
       description: 'Pro Subscription ($29 per month)',
       panelLabel: "Subscribe",
       label: "Subscribe",
       amount: 2000,
-      allowRememberMe: false
+      allowRememberMe: false,
+      email: this.state.auth.password.email
     });
   },
   render: function() {
